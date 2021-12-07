@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "name": "remix-app-template",
+  "description": "",
+  "license": "",
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -o ./app/tailwind.css",
+    "dev": "remix watch",
+    "postinstall": "remix setup cloudflare-workers && npm run prisma:generate",
+    "seed": "node --require esbuild-register prisma/seed.ts",
+    "build:worker": "NODE_ENV=production node worker.build.js",
+    "dev:css": "tailwindcss -o ./app/tailwind.css --watch",
+    "dev:worker": "node worker.build.js",
+    "start": "run-p dev:css dev miniflare",
+    "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE=dataproxy prisma generate",
+    "miniflare": "miniflare --build-command \"npm run dev:worker\" --watch",
+    "deploy": "npm run build && wrangler publish"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.5.0",
+    "@remix-run/cloudflare-workers": "^1.0.6",
+    "@remix-run/react": "^1.0.6",
+    "classnames": "^2.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remix": "^1.0.6",
+    "tiny-invariant": "^1.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.2.2",
+    "@remix-run/dev": "^1.0.6",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "esbuild": "0.13.14",
+    "esbuild-plugin-alias": "^0.2.1",
+    "esbuild-register": "^3.2.0",
+    "miniflare": "2.0.0-next.3",
+    "npm-run-all": "^4.1.5",
+    "prisma": "^3.5.0",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false,
+  "main": "dist/worker.js"
+}
