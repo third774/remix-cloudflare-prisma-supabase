@@ -30,7 +30,7 @@ export default function Index() {
 
   return (
     <main>
-      <h1>Hello, ${data.name}</h1>
+      <h1>Hello, {data.name}</h1>
     </main>
   );
 }

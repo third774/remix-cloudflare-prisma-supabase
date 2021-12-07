@@ -6,7 +6,9 @@
 
 Head over to [Supabase](https://supabase.com/) and set up a Postgras DB for your application. Provisioning the database may take a few minutes. You will need to get the DB connection string. This will be your `MIGRATION_DATABASE_URL` in the `.env` file. Be sure to put your password in the URL.
 
-Then head over to [Prisma](https://www.prisma.io/dataplatform) and sign up for their data proxy. The URL they provide will be your `DATABASE_URL` in the `.env` file.
+Then head over to [Prisma](https://www.prisma.io/dataplatform) and sign up for their data proxy. Configure it for your repository and provide your database connection string. The `Prisma Data Proxy URL` they provide will be your `DATABASE_URL` in the `.env` file.
+
+Once your `.env` and `.env.migrate` files are configured, run `npm run prisma:push` followed by `npm run prisma:seed`.
 
 ## Development
 

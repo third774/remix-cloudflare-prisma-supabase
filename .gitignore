@@ -6,4 +6,5 @@ node_modules
 /dist
 /public/build
 .env
+.env.migrate
 /app/tailwind.css
