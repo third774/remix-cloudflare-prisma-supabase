@@ -13,7 +13,7 @@
     "dev:worker": "node worker.build.js",
     "start": "run-p dev:css dev miniflare",
     "prisma:generate": "prisma generate",
-    "prisma:push": "dotenv -e .env.migrate -- npx prisma db push",
+    "prisma:push": "dotenv -e .env.migrate -- npx prisma db push --skip-generate",
     "prisma:seed": "node --require esbuild-register prisma/seed.ts",
     "miniflare": "miniflare --build-command \"npm run dev:worker\" --watch",
     "deploy": "npm run build && wrangler publish"
