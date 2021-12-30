@@ -112,11 +112,5 @@ function Document({
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div>
-      <header>Header</header>
-      <div>{children}</div>
-      <footer>Footer</footer>
-    </div>
-  );
+  return <div>{children}</div>;
 }
