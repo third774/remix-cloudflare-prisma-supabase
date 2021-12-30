@@ -11,10 +11,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Message {
   id       String   @id @default(uuid())
-  email    String   @unique
-  name     String
+  message  String
   created  DateTime @default(now())
   modified DateTime @default(now())
 }
